@@ -1,0 +1,37 @@
+# Date Picker - Select 7 Days Prior Date
+
+## Description
+This Selenium automation script selects a date that is **7 days before the current system date** from the jQuery Date Picker.
+
+## Technologies Used
+- Java
+- Selenium WebDriver
+- ChromeDriver
+- LocalDate (Java Time API)
+
+## Logic
+1. Get the current system date.
+2. Subtract 7 days using `LocalDate.now().minusDays(7)`.
+3. Extract the month, year, and day.
+4. Navigate to the required month and year in the calendar.
+5. Select the calculated date.
+
+## Code Used
+```java
+LocalDate targetDate = LocalDate.now().minusDays(7);
+
+String month = targetDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
+String year = String.valueOf(targetDate.getYear());
+String date = String.valueOf(targetDate.getDayOfMonth());
+```
+
+## Example
+
+Current Date: 28-07-2026
+
+Selected Date: 21-07-2026
+
+## Features
+- Automatically calculates the date 7 days before the current date.
+- Works across different months and years.
+- No hardcoded dates required.
